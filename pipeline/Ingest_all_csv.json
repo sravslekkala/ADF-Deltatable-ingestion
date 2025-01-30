@@ -1,5 +1,5 @@
 {
-	"name": "pipeline1",
+	"name": "Ingest_all_csv",
 	"properties": {
 		"activities": [
 			{
