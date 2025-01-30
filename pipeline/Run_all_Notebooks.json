@@ -1,5 +1,5 @@
 {
-	"name": "Ingest_all_csv",
+	"name": "Run_all_Notebooks",
 	"properties": {
 		"activities": [
 			{
