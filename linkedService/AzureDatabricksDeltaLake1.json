@@ -1,0 +1,13 @@
+{
+	"name": "AzureDatabricksDeltaLake1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDatabricksDeltaLake",
+		"typeProperties": {
+			"domain": "https://adb-3319421618254131.11.azuredatabricks.net",
+			"clusterId": "0118-235002-tyh0iuc1",
+			"workspaceResourceId": "/subscriptions/7e68bc04-0330-4dc8-bf2c-b7ec4b79b95d/resourceGroups/formula1/providers/Microsoft.Databricks/workspaces/formula1"
+		}
+	}
+}

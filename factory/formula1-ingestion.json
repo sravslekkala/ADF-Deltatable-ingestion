@@ -1,0 +1,9 @@
+{
+	"name": "formula1-ingestion",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2089d9de-aee0-4c1e-a102-d161cc0123b4",
+		"tenantId": "2195ff01-06f1-442c-a3ff-bd91739e9eee"
+	}
+}

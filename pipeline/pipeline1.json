@@ -1,0 +1,171 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Ingest circuitsFile",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/formula1/Incremental Loads/incremental ingest_circuitsfile",
+					"baseParameters": {
+						"file_date": {
+							"value": "@formatDateTime(pipeline().parameters.file_date,'yyyy-MM-dd')",
+							"type": "Expression"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "Formula1_link",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Ingest drivers",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/formula1/Incremental Loads/incremental Ingest Drivers",
+					"baseParameters": {
+						"file_date": {
+							"value": "@formatDateTime(pipeline().parameters.file_date,'yyyy-MM-dd')",
+							"type": "Expression"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "Formula1_link",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Ingest constructors",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/formula1/Delta loads/delta Ingest_Constructor",
+					"baseParameters": {
+						"file_date": {
+							"value": "@formatDateTime(pipeline().parameters.file_date,'yyyy-MM-dd')",
+							"type": "Expression"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "Formula1_link",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Ingest Qualifying",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/formula1/Delta loads/delta Ingest Qualifying",
+					"baseParameters": {
+						"file_date": {
+							"value": "@formatDateTime(pipeline().parameters.file_date,'yyyy-MM-dd')",
+							"type": "Expression"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "Formula1_link",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Ingest Pit_stops",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/formula1/Delta loads/Delta Ingest Pitstops",
+					"baseParameters": {
+						"file_date": {
+							"value": "@formatDateTime(pipeline().parameters.file_date,'yyyy-MM-dd')",
+							"type": "Expression"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "Formula1_link",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Ingest Results",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/formula1/Delta loads/delta Ingest Results",
+					"baseParameters": {
+						"file_date": {
+							"value": "@formatDateTime(pipeline().parameters.file_date,'yyyy-MM-dd')",
+							"type": "Expression"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "Formula1_link",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"parameters": {
+			"file_date": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-01-20T22:57:29Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
